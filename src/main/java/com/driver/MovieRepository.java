@@ -63,12 +63,22 @@ public class MovieRepository {
         }
         return null;
     }
-    public List<Movie> getMoviesByDirectorName(String directorName){
+    public List<String> getMoviesByDirectorName(String directorName){
         if(!pair.containsKey(directorName)) return null;
-        return pair.get(directorName);
+        List<Movie> directed = pair.get(directorName);
+        List<String> name = new ArrayList<>();
+        for(Movie movie : movies){
+            name.add(movie.getName());
+        }
+        return name;
     }
-    public List<Movie> findAllMovies(){
-        return movies;
+    public List<String> findAllMovies(){
+
+        List<String> name = new ArrayList<>();
+        for(Movie movie : movies){
+            name.add(movie.getName());
+        }
+        return name;
     }
     public void deleteDirectorByName(String directorName){
         ArrayList<Movie> pairMovie = pair.get(directorName);

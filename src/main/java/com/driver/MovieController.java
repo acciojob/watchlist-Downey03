@@ -43,13 +43,13 @@ public class MovieController {
         return new ResponseEntity<>(director,HttpStatus.CREATED);
     }
     @GetMapping("/get-movies-by-director-name/{director}")
-    public ResponseEntity<List<Movie>> getMoviesByDirectorName(@PathVariable("director") String directorName){
-        List<Movie> movies = movieService.getMoviesByDirectorName(directorName);
+    public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable("director") String directorName){
+        List<String> movies = movieService.getMoviesByDirectorName(directorName);
         return new ResponseEntity<>(movies,HttpStatus.CREATED);
     }
     @GetMapping("/get-all-movies")
-    public ResponseEntity<List<Movie>> findAllMovies(){
-        List<Movie> movies = movieService.findAllMovies();
+    public ResponseEntity<List<String>> findAllMovies(){
+        List<String> movies = movieService.findAllMovies();
         return new ResponseEntity<>(movies,HttpStatus.CREATED);
     }
     @DeleteMapping("/delete-director-by-name")
